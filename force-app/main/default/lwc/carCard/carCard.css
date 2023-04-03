@@ -1,0 +1,10 @@
+/* It is used to apply a set of styling rules to all section elements in the HTML document. */
+section{
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+    background: rgb(199, 197, 197);
+    border-radius: 5px;
+    padding: 0.25rem;
+}

@@ -1,0 +1,48 @@
+<!-- This Component is used for displaying the similar cars when a button is clicked on the record page -->
+<template>
+    <lightning-card  title="Similar Cars" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <!-- This template is used for showing the button of the fetch Similar Cars -->
+            <template if:false={similarCars}>
+                <div class="slds-align_absolute-center">
+                    <lightning-button variant="success" 
+                    label="Fetch Similar Cars" 
+                    title="similar cars" 
+                    onclick={handleFetch}
+                    ></lightning-button>
+                </div>
+            </template>
+            
+                <!-- Used for fetch the similar cars -->
+                <template if:true={similarCars}>
+                    <template for:each={similarCars} for:item="car">
+                        <lightning-layout multiple-rows key={car.Id}>
+                            <lightning-layout-item>
+                               <img src={car.Picture_URL__c} alt="Car Image" class="car">
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="grow" class="slds-p-horizontal_small">
+
+                                <p>{car.Name}</p>
+
+                                <p><lightning-formatted-number value={car.MSRP__c} 
+                                    format-style="currency" 
+                                    maximum-fraction-digits="0"
+                                     currency-code="USD" 
+                                     currency-display-as="code">
+                                    </lightning-formatted-number>
+                                </p>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                <lightning-button variant="brand" 
+                                label="View Details" 
+                                data-id={car.Id} 
+                                onclick={handleviewClick}
+                                ></lightning-button>
+                            </lightning-layout-item>    
+                        </lightning-layout>
+                    </template>
+                </template>
+            
+        </div>
+    </lightning-card>
+</template>

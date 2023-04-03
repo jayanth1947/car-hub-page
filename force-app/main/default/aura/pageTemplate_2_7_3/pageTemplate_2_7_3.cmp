@@ -1,0 +1,30 @@
+<!-- This is an Aura component that implements the lightning:appHomeTemplate interface.
+    It is a Three Column Template component that displays three columns in a single row using
+    the lightning:layout and lightning:layoutItem components. -->
+<aura:component implements="lightning:appHomeTemplate"
+                description="Three Column Template"
+                access="global">  
+
+            <!--Aura.Component[]- it's a collection of Lightning Components.
+            - It can be used to store and manipulate multiple instances of Lightning Components in an application.  -->
+    <aura:attribute name="left" type="Aura.Component[]" access="public" />
+    <aura:attribute name="center" type="Aura.Component[]" access="public" />
+    <aura:attribute name="right" type="Aura.Component[]" access="public" />
+
+    <div aura:id="container">
+
+        <lightning:layout>
+            <lightning:layoutItem aura:id="leftColumn" size="2" padding="around-small">
+                <div class="custom-box">{!v.left}</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem aura:id="leftColumn" size="7" padding="around-small">
+                <div class="custom-box">{!v.center}</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem aura:id="leftColumn" size="3" padding="around-small">
+                <div class="custom-box">{!v.right}</div>
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+    </div>
+
+</aura:component>	

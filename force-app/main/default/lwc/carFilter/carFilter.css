@@ -1,0 +1,38 @@
+/* Style for the lightning card */
+.slds-card {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the section headings */
+  h1, h2 {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Style for the search input field */
+  .slds-form-element > .slds-form-element__control > .slds-input {
+    margin: 20px 0;
+  }
+  
+  /* Style for the slider */
+  .slider_section {
+    margin: 20px 0;
+  }
+  
+  /* Style for the checkbox labels */
+  .slds-checkbox .slds-checkbox__label {
+    font-size: 14px;
+  }
+  
+  /* Style for the checkbox containers */
+  .slds-checkbox .slds-checkbox_faux-container {
+    margin-right: 10px;
+  }
+  
+  /* Style for the error message */
+  .slds-form-element__help {
+    color: red;
+    font-size: 14px;
+  }
+  
