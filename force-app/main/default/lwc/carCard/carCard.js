@@ -14,10 +14,7 @@ import CONTROL_FIELD from '@salesforce/schema/Car__c.Control__c';
 //Importing the required modules for LMS
 import { APPLICATION_SCOPE,createMessageContext, MessageContext, publish, releaseMessageContext, subscribe, unsubscribe} from 'lightning/messageService';
 
-//Importing the required NavigationMixin for navigation between records
 import { NavigationMixin } from 'lightning/navigation';
-
-//Importing the CarSelected__c message channel to be used for LMS
 import CAR_SELECTED_MESSAGE from '@salesforce/messageChannel/CarSelected__c';
 
 //Importing the getFieldValue function to extract the values of the fields
@@ -26,16 +23,9 @@ import { getFieldValue } from 'lightning/uiRecordApi';
 
 export default class CarCard extends NavigationMixin(LightningElement) {
 
-    // Initializing the hardcoded value for recordId as null
     recordId
-
-    
-
-    //load context for lms
     @wire(MessageContext)
     messageContext
-
-    //subscribtion references
     carSelectionSubscription
 
     // Exposing the fields to the template
@@ -45,26 +35,15 @@ export default class CarCard extends NavigationMixin(LightningElement) {
     fuelField=FUEL_FIELD
     seatField=SEATS_FIELD
     controlField=CONTROL_FIELD
-
-    // Car fields displayed with specific format
     carName
     carPicture
 
-    //whenever the record view is loaded
+    
     handleRecordLoded(event){
-
-    /*This line of code assigns the value of the records property of the "event.detail" object to a new variable named records. 
-      The "event.detail" object is commonly used in custom events in JavaScript to pass data to event listeners.*/
-          
       const {records}=event.detail
-
-    /*This line of code creates a new variable named recordData and sets its value to the record object from the records array
-      that has an Id property equal to this.recordId. The value of this.recordId is not shown in this code snippet, but it is likely
-      defined somewhere else in the code. */
-
       const recordData=records[this.recordId]
-      this.carName=getFieldValue(recordData,NAME_FIELD) //This is for Car Name
-      this.carPicture=getFieldValue(recordData,PICTURE_URL_FIELD) //This is for Car Image
+      this.carName=getFieldValue(recordData,NAME_FIELD) 
+      this.carPicture=getFieldValue(recordData,PICTURE_URL_FIELD)
 
     }
 
@@ -92,23 +71,11 @@ export default class CarCard extends NavigationMixin(LightningElement) {
 
     // This function is used for navigation to the record page
     handleNavigateRecord(){
-
-      //The method uses the NavigationMixin to navigate to a specific record page.
       this[NavigationMixin.Navigate]({
-
-        //When the method is called, a navigation object is created with the type property set to 'standard__recordPage'.
         type:'standard__recordPage',
-
-        //The attributes property of the navigation object is an object with three properties: recordId, objectApiName, and actionName.
         attributes:{
-
-          //The recordId property is set to the recordId property of the CarCard component.
           recordId:this.recordId,
-
-          //The objectApiName property is set to the objectApiName property of the CAR_OBJECT import.
           objectApiName:CAR_OBJECT.objectApiName,
-
-          //The actionName property is set to 'view'.
           actionName:'view'
         }
       })
