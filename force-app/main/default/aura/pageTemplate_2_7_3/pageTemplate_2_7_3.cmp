@@ -5,8 +5,6 @@
                 description="Three Column Template"
                 access="global">  
 
-            <!--Aura.Component[]- it's a collection of Lightning Components.
-            - It can be used to store and manipulate multiple instances of Lightning Components in an application.  -->
     <aura:attribute name="left" type="Aura.Component[]" access="public" />
     <aura:attribute name="center" type="Aura.Component[]" access="public" />
     <aura:attribute name="right" type="Aura.Component[]" access="public" />

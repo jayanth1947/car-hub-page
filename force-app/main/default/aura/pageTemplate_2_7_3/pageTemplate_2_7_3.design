@@ -1,14 +1,6 @@
-<!-- <design:component> is a Lightning Component resource that defines the design attributes of a Lightning component.
-     In this case, the component's label is set to "Three columns layout: 2 7 3". -->
+
 <design:component label="Three columns layout: 2 7 3" >
-
-<!-- <flexipage:template> is a Lightning Component resource that defines the layout template for a Lightning Page using Flexipage. 
-    In this case, it defines a template with three regions named "left", "center", and "right". -->
-    <flexipage:template>
-
-    <!-- <flexipage:region> is a Lightning Component resource that defines a region within a Flexipage template. 
-        - The name attribute specifies the name of the region, and the defaultWidth attribute specifies the default width of the region when the page is loaded.
-        - In this case, each region has a default width of "SMALL", which is a fixed width defined by Salesforce. -->
+    <flexipage:template>   
         <flexipage:region name="left" defaultWidth="SMALL"/>
         <flexipage:region name="center" defaultWidth="SMALL"/>
         <flexipage:region name="right" defaultWidth="SMALL"/>
