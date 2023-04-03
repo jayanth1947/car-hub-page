@@ -8,5 +8,5 @@
 
 - Overall, the Car Hub project is a good example of how to build a simple web application using Lightning Web Components and Apex classes in Salesforce.
 
-- [Car Hub Project](https://empathetic-goat-jgrtil-dev-ed.lightning.force.com/lightning/n/Car_Explorer)
+
 
